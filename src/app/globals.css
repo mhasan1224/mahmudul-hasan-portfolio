@@ -96,3 +96,9 @@ body {
   outline-offset: 3px;
   border-radius: 4px;
 }
+
+/* ── Anchor navigation offset for sticky header ─────────────────────────────── */
+section[id] {
+  scroll-margin-top: 5rem;
+}
+
