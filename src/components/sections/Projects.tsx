@@ -58,7 +58,7 @@ export default function Projects() {
           whileInView="visible"
           viewport={{ once: true, margin: "-80px" }}
           variants={CONTAINER_VARIANTS}
-          className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8 items-stretch"
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8 items-stretch"
         >
           {projects.map((project) => {
             const hasLiveUrl = Boolean(project.liveUrl);
@@ -139,7 +139,17 @@ export default function Projects() {
                       <ArrowUpRight size={14} aria-hidden="true" />
                     </a>
 
-                    {!hasLiveUrl && (
+                    {hasLiveUrl ? (
+                      <a
+                        href={project.liveUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center gap-1 font-semibold text-foreground hover:text-primary transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary rounded"
+                      >
+                        <span>Live Demo</span>
+                        <ExternalLink size={12} aria-hidden="true" />
+                      </a>
+                    ) : (
                       <span className="text-muted/70 italic text-[11px]">
                         Demo link coming soon
                       </span>

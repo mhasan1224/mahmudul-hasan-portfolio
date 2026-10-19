@@ -100,14 +100,22 @@ export const projects: Project[] = [
       "A personal portfolio built with Next.js 16, TypeScript, and Tailwind CSS. Features a dark navy theme, smooth animations, and a focus on accessibility and performance.",
     tags: ["Next.js", "TypeScript", "Tailwind CSS", "Framer Motion"],
     githubUrl: "https://github.com/mhasan1224/mahmudul-hasan-portfolio",
-    liveUrl: undefined, // Add your deployed URL here
+    liveUrl: undefined,
   },
-  // ← Add more real projects here as you build them
-  // {
-  //   title: "Your Project Name",
-  //   description: "What the project does in 1–2 honest sentences.",
-  //   tags: ["React", "..."],
-  //   githubUrl: "https://github.com/mhasan1224/your-repo",
-  //   liveUrl: "https://your-project.vercel.app",
-  // },
+  {
+    title: "Bazardor — বাজার দর",
+    description:
+      "A Bangla market price web application that allows users to explore product prices by category, view product details, and access their accounts using Google and GitHub authentication.",
+    tags: ["Next.js", "TypeScript", "Tailwind CSS", "MongoDB", "Better Auth"],
+    githubUrl: "https://github.com/mhasan1224/bazardor",
+    liveUrl: "https://bazardor-flame.vercel.app/",
+  },
+  {
+    title: "FitLog — Workout Planner",
+    description:
+      "A workout planning application where users can browse workouts, view exercise details, create daily workout plans, save workouts for later, and manage their plans.",
+    tags: ["Next.js", "TypeScript", "Tailwind CSS", "React Context", "Local Storage"],
+    githubUrl: "https://github.com/mhasan1224/fit-log",
+    liveUrl: "https://fit-log-amber-eight.vercel.app/",
+  },
 ];
