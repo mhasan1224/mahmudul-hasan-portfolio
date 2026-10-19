@@ -1,26 +1,98 @@
+/*
+ * globals.css — Portfolio Theme
+ *
+ * Tailwind v4 uses @import "tailwindcss" (no config file needed).
+ * Custom design tokens are declared in :root and exposed to Tailwind
+ * as utility classes via the @theme inline {} block.
+ *
+ * Color naming convention:
+ *   bg-background   → deep navy page background
+ *   bg-surface      → slightly lighter card / section background
+ *   text-foreground → primary body text
+ *   text-muted      → secondary / caption text
+ *   bg-primary      → emerald green accent (CTAs, highlights)
+ *   bg-primary-dark → dimmed emerald (hover states, glows)
+ *   border-border   → subtle card borders
+ */
+
 @import "tailwindcss";
 
+/* ── Design tokens ─────────────────────────────────────────────────────────── */
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background:   #0a0f1e; /* Deep navy — page background            */
+  --surface:      #0d1526; /* Slightly lighter — card backgrounds     */
+  --border:       #1e293b; /* Subtle border colour                    */
+  --primary:      #10b981; /* Emerald green — CTAs, links, accents    */
+  --primary-dark: #064e3b; /* Dimmed emerald — hover / glow states    */
+  --foreground:   #e2e8f0; /* Light slate — primary body text         */
+  --muted:        #94a3b8; /* Slate 400 — secondary / caption text    */
 }
 
+/* ── Tailwind v4: expose tokens as utility classes ─────────────────────────── */
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-background:   var(--background);
+  --color-surface:      var(--surface);
+  --color-border:       var(--border);
+  --color-primary:      var(--primary);
+  --color-primary-dark: var(--primary-dark);
+  --color-foreground:   var(--foreground);
+  --color-muted:        var(--muted);
+
+  /* Inter is loaded via next/font/google and injected as --font-inter */
+  --font-sans: var(--font-inter);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+/* ── Base styles ────────────────────────────────────────────────────────────── */
+html {
+  /* Smooth scrolling for same-page anchor navigation */
+  scroll-behavior: smooth;
+}
+
+/* Respect the user's reduced-motion preference */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
   }
 }
 
 body {
-  background: var(--background);
+  background-color: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-inter), system-ui, sans-serif;
+  /* Improve text rendering on dark backgrounds */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ── Scrollbar styling (Webkit) ─────────────────────────────────────────────── */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--background);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--border);
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--primary-dark);
+}
+
+/* ── Focus ring — accessible keyboard navigation ────────────────────────────── */
+:focus-visible {
+  outline: 2px solid var(--primary);
+  outline-offset: 3px;
+  border-radius: 4px;
 }
