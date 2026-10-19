@@ -17,7 +17,7 @@ export const siteConfig: SiteConfig = {
   name: "Mahmudul Hasan",
   role: "Frontend Developer",
   location: "Gazipur, Bangladesh",
-  email: "your.email@example.com", // TODO: Replace with your real email
+  email: "mhassan.merit@gmail.com",
   github: "https://github.com/mhasan1224",
   linkedin: "https://linkedin.com/in/mahmudul-hasan-oasel",
   resumePath: "/resume.pdf", // Drop your resume PDF in the /public folder
