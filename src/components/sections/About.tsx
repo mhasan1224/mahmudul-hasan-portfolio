@@ -12,6 +12,7 @@
  * - Sourced directly from lib/data.ts.
  */
 
+import Image from "next/image";
 import { motion, useReducedMotion, type Variants } from "framer-motion";
 import { MapPin, Code2, BookOpen, Layers, CheckCircle2 } from "lucide-react";
 import { siteConfig } from "@/lib/data";
@@ -49,11 +50,11 @@ export default function About() {
           description="A look into my journey as a junior frontend developer and where I'm headed next."
         />
 
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-stretch">
           {/* ── Left Column: Profile Card ────────────────────────────── */}
           <motion.div
             {...motionProps}
-            className="lg:col-span-5 rounded-2xl border border-border bg-surface p-6 sm:p-8 relative overflow-hidden"
+            className="lg:col-span-5 flex flex-col justify-between h-full rounded-2xl border border-border bg-surface p-6 sm:p-8 relative overflow-hidden"
           >
             {/* Subtle emerald corner glow */}
             <div
@@ -61,28 +62,35 @@ export default function About() {
               className="absolute -top-16 -right-16 h-36 w-36 rounded-full bg-primary/10 blur-2xl pointer-events-none"
             />
 
-            <div className="flex items-center gap-4 mb-6">
-              <div
-                className="flex h-16 w-16 items-center justify-center rounded-2xl bg-primary/10 border border-primary/20 text-primary font-bold text-xl"
-                aria-hidden="true"
-              >
-                MH
+            <div>
+              {/* Profile Photo at top of card */}
+              <div className="relative mb-6 h-48 w-40 sm:h-56 sm:w-44 overflow-hidden rounded-2xl border border-primary/20 bg-primary/10 shadow-sm shrink-0">
+                <Image
+                  src="/images/profile.jpg"
+                  alt={`Profile photo of ${siteConfig.name}`}
+                  fill
+                  sizes="180px"
+                  className="object-cover object-top"
+                  priority
+                />
               </div>
-              <div>
-                <h3 className="text-xl font-bold text-foreground">
+
+              {/* Name, Role, Location below photo */}
+              <div className="mb-6">
+                <h3 className="text-xl sm:text-2xl font-bold text-foreground">
                   {siteConfig.name}
                 </h3>
-                <p className="text-sm text-primary font-medium">
+                <p className="text-sm sm:text-base text-primary font-medium mt-1">
                   {siteConfig.role}
                 </p>
-                <div className="flex items-center gap-1.5 mt-1 text-xs text-muted">
-                  <MapPin size={13} className="text-primary shrink-0" aria-hidden="true" />
+                <div className="flex items-center gap-1.5 mt-2 text-xs sm:text-sm text-muted">
+                  <MapPin size={14} className="text-primary shrink-0" aria-hidden="true" />
                   <span>{siteConfig.location}</span>
                 </div>
               </div>
             </div>
 
-            <div className="space-y-4 text-sm border-t border-border/60 pt-5">
+            <div className="space-y-4 text-sm border-t border-border/60 pt-5 mt-auto">
               <div>
                 <span className="text-xs uppercase tracking-wider text-muted font-semibold block mb-1">
                   Primary Focus

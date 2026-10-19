@@ -18,6 +18,7 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { Menu, X } from "lucide-react";
 import { motion, AnimatePresence, useReducedMotion } from "framer-motion";
 import { siteConfig } from "@/lib/data";
@@ -75,17 +76,27 @@ export default function Navbar() {
         className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4"
         aria-label="Main navigation"
       >
-        {/* Logo — navigates to top of page */}
+        {/* Logo / Brand with circular avatar — navigates to top of page */}
         <Link
           href="/"
-          className="rounded text-lg font-bold tracking-tight text-foreground
-                     transition-colors hover:text-primary
-                     focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary"
+          className="flex items-center gap-2.5 rounded text-base sm:text-lg font-bold tracking-tight text-foreground transition-colors hover:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary"
           aria-label={`${siteConfig.name}, go to homepage`}
         >
-          <span className="text-primary" aria-hidden="true">{"<"}</span>
-          MH
-          <span className="text-primary" aria-hidden="true">{"/>"}</span>
+          <span className="relative h-8 w-8 overflow-hidden rounded-full border border-primary/30 shrink-0">
+            <Image
+              src="/images/profile.jpg"
+              alt={`Avatar of ${siteConfig.name}`}
+              width={32}
+              height={32}
+              className="h-full w-full object-cover"
+              priority
+            />
+          </span>
+          <span>
+            <span className="text-primary" aria-hidden="true">{"<"}</span>
+            {siteConfig.name}
+            <span className="text-primary" aria-hidden="true">{"/>"}</span>
+          </span>
         </Link>
 
         {/* Desktop nav links */}
