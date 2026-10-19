@@ -1,56 +1,56 @@
 /**
- * app/page.tsx — Milestone 1 placeholder
+ * app/page.tsx — Root page (single-page portfolio layout).
  *
- * This file will be replaced in Milestone 2 with the full single-page layout
- * (Navbar + Hero + About + Skills + Projects + Contact + Footer).
+ * This Server Component composes all sections in order.
+ * Sections are imported as Client Components where they need
+ * interactivity or browser APIs.
  *
- * For now it renders a themed page that confirms:
- *   ✓ Inter font is loaded
- *   ✓ Navy background + emerald accent colours are working
- *   ✓ Tailwind v4 utility classes (bg-background, text-primary, etc.) compile
- *   ✓ The layout fills the full viewport
+ * Milestone progress:
+ *   ✅ M2: Navbar, Hero
+ *   ⬜ M3: About, Skills, Projects
+ *   ⬜ M4: Contact, Footer
+ *
+ * The empty section elements below act as scroll targets for
+ * the Navbar and Hero CTA links (#about, #skills, #projects, #contact).
+ * They will be replaced with real content in upcoming milestones.
  */
 
-import { siteConfig } from "@/lib/data";
+import Navbar from "@/components/Navbar";
+import Hero   from "@/components/sections/Hero";
 
 export default function Home() {
   return (
-    <main className="flex flex-1 flex-col items-center justify-center gap-6 px-6 text-center">
-      {/* Emerald accent dot — visual check that the primary colour is applied */}
-      <span
-        className="inline-block h-3 w-3 rounded-full bg-primary"
-        aria-hidden="true"
-      />
+    <>
+      <Navbar />
 
-      <h1 className="text-4xl font-bold tracking-tight text-foreground sm:text-5xl">
-        {siteConfig.name}
-      </h1>
+      <main id="main-content">
+        {/* ── M2: visible ─────────────────────────────────────────────────── */}
+        <Hero />
 
-      <p className="text-lg text-muted max-w-md">
-        {siteConfig.role} — Milestone 1 scaffold complete.
-        <br />
-        Full portfolio coming in the next milestone.
-      </p>
+        {/* ── M3: scroll anchor placeholders — will be filled in next ─────── */}
+        <section
+          id="about"
+          aria-label="About"
+          className="min-h-[40vh]"
+        />
+        <section
+          id="skills"
+          aria-label="Skills"
+          className="min-h-[40vh]"
+        />
+        <section
+          id="projects"
+          aria-label="Projects"
+          className="min-h-[40vh]"
+        />
 
-      {/* Theme swatch grid — confirms all colour tokens are resolving */}
-      <div
-        className="mt-8 grid grid-cols-3 gap-3 text-xs"
-        aria-label="Theme colour swatches"
-      >
-        {[
-          { label: "background", cls: "bg-background border border-border" },
-          { label: "surface",    cls: "bg-surface" },
-          { label: "primary",    cls: "bg-primary" },
-          { label: "primary-dark", cls: "bg-primary-dark" },
-          { label: "foreground", cls: "bg-foreground" },
-          { label: "muted",      cls: "bg-muted" },
-        ].map(({ label, cls }) => (
-          <div key={label} className="flex flex-col items-center gap-1">
-            <div className={`h-10 w-16 rounded ${cls}`} />
-            <span className="text-muted">{label}</span>
-          </div>
-        ))}
-      </div>
-    </main>
+        {/* ── M4: scroll anchor placeholders ──────────────────────────────── */}
+        <section
+          id="contact"
+          aria-label="Contact"
+          className="min-h-[40vh]"
+        />
+      </main>
+    </>
   );
 }
