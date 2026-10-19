@@ -6,18 +6,17 @@
  *   ✅ Hero
  *   ✅ About
  *   ✅ Skills
- *   ⬜ Projects (Upcoming)
- *   ⬜ Contact (Upcoming)
- *   ⬜ Footer (Upcoming)
- *
- * Remaining empty sections preserve scroll anchor targets (#projects, #contact)
- * for the Navbar and Hero CTA buttons until they are implemented.
+ *   ✅ Projects
+ *   ✅ Contact
+ *   ⬜ Footer (Milestone 5)
  */
 
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/sections/Hero";
 import About from "@/components/sections/About";
 import Skills from "@/components/sections/Skills";
+import Projects from "@/components/sections/Projects";
+import Contact from "@/components/sections/Contact";
 
 export default function Home() {
   return (
@@ -34,18 +33,11 @@ export default function Home() {
         {/* Skills Section */}
         <Skills />
 
-        {/* ── Upcoming Sections (Anchor Placeholders) ────────────────────── */}
-        <section
-          id="projects"
-          aria-label="Projects"
-          className="min-h-[40vh]"
-        />
+        {/* Projects Section */}
+        <Projects />
 
-        <section
-          id="contact"
-          aria-label="Contact"
-          className="min-h-[40vh]"
-        />
+        {/* Contact Section */}
+        <Contact />
       </main>
     </>
   );
