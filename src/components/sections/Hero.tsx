@@ -143,8 +143,8 @@ export default function Hero() {
 
           {/* Secondary — resume PDF download */}
           <a
-            href={siteConfig.resumePath}
-            download
+            href="/documents/Mahmudul-Hasan-CV.pdf"
+            download="Mahmudul-Hasan-CV.pdf"
             className="inline-flex items-center gap-2 rounded-full border border-border
                        bg-surface px-7 py-3 text-sm font-semibold text-foreground
                        transition-all duration-200 hover:border-primary hover:text-primary hover:scale-105

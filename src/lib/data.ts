@@ -20,7 +20,7 @@ export const siteConfig: SiteConfig = {
   email: "mhassan.merit@gmail.com",
   github: "https://github.com/mhasan1224",
   linkedin: "https://linkedin.com/in/mahmudul-hasan-oasel",
-  resumePath: "/resume.pdf", // Drop your resume PDF in the /public folder
+  resumePath: "/documents/Mahmudul-Hasan-CV.pdf",
   bio: [
     "I'm a junior frontend developer based in Gazipur, Bangladesh, passionate about building clean, accessible, and performant web experiences.",
     "I work with React and Next.js to craft modern UIs, and I'm actively expanding my skills into backend development with Node.js, Express.js, and MongoDB.",
@@ -100,7 +100,7 @@ export const projects: Project[] = [
       "A personal portfolio built with Next.js 16, TypeScript, and Tailwind CSS. Features a dark navy theme, smooth animations, and a focus on accessibility and performance.",
     tags: ["Next.js", "TypeScript", "Tailwind CSS", "Framer Motion"],
     githubUrl: "https://github.com/mhasan1224/mahmudul-hasan-portfolio",
-    liveUrl: undefined,
+    liveUrl: "https://mahmudul-hasan-portfolio-one.vercel.app/",
   },
   {
     title: "Bazardor — বাজার দর",

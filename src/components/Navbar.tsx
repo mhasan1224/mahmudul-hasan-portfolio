@@ -116,8 +116,9 @@ export default function Navbar() {
 
         {/* Desktop resume CTA */}
         <a
-          href={siteConfig.resumePath}
-          download
+          href="/documents/Mahmudul-Hasan-CV.pdf"
+          target="_blank"
+          rel="noopener noreferrer"
           className="hidden md:inline-flex items-center gap-2 rounded-full border border-primary
                      px-5 py-2 text-sm font-semibold text-primary
                      transition-all hover:bg-primary hover:text-background
@@ -175,15 +176,16 @@ export default function Navbar() {
 
               <li className="mt-3 border-t border-border pt-4">
                 <a
-                  href={siteConfig.resumePath}
-                  download
+                  href="/documents/Mahmudul-Hasan-CV.pdf"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   onClick={closeMenu}
                   className="flex w-full items-center justify-center rounded-full border border-primary
                              px-5 py-2.5 text-sm font-semibold text-primary
                              transition-all hover:bg-primary hover:text-background
                              focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary"
                 >
-                  Download Resume
+                  Resume
                 </a>
               </li>
             </ul>
